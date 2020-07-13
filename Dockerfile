@@ -13,6 +13,6 @@ RUN echo "===> Installing required tools "  && \
     pip install ansible                 && \
     echo "===> Removing unused resources "                  && \
     apt-get -f -y --auto-remove remove \
-                 gcc python-pip python-dev libffi-dev libssl-dev  && \
+                 gcc python-dev libffi-dev libssl-dev  && \
     apt-get clean                                                 && \
     rm -rf /var/lib/apt/lists/*  /tmp/*                           
