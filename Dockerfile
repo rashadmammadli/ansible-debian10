@@ -8,10 +8,10 @@ RUN echo "++++ Installing required tools ++++"  && \
     apt-get install -y apt-transport-https gnupg2 \
                             sudo python python-yaml openssh-client \
                             curl gcc python-pip python-dev libffi-dev libssl-dev openssh-client && \
-    echo "++++ Adding reqiured repos ++++"  && \
-    curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -  && \
-    echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | tee -a /etc/apt/sources.list.d/kubernetes.list  && \
-    apt-get install -y kubectl && \
+    echo "++++ Adding additional tools ++++"  && \
+    curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl  && \
+    chmod +x ./kubectl  && \
+    mv ./kubectl /usr/local/bin/kubectl && \
     echo "++++ Installing Ansible ++++"   && \
     pip install ansible                 && \
     echo "++++ Installing required pip packages ++++"   && \
