@@ -1,1 +1,1 @@
-# ansible-debian10
+# Ansible image based on debian buster
